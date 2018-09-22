@@ -1,18 +1,11 @@
-# Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+# Brian Harlow's Button Blink
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP(FILL IN THE PROCESSOR YOU ARE USING)
+## Program Purpose
+This program was designed to blink an LED on an MSP430 development board with the push of a button.
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise. Make sure you talk about how your button is configured (momentary or continuous. Normally open or closed. Does the button press indicate when the LED should be on or off.)
+## Functionality
+After the desired LED pin is set to GPIO output, and the desired button pin is set to GPIO input, an infinitely looping while loop is initiated. This while loop uses a nested if statement to constantly check if the desired button is being pressed. If the button is being pressed, the LED is turned on with an AND operation. If the button is not being pressed, the LED is turned off with an OR operation. 
 
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
-
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
-
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
+## Microcontrollers Used
+* MSP430G2553 - The button used is S1 (P1.3) and the LED used is D1 (P1.0).
+* MSPF5529 - The button used is S2 (P1.1) and the LED used is LED1(P1.0). The only difference with this microcontroller's code is that it only required one line to set the pins to GPIO.
